@@ -32,12 +32,11 @@
     }
   </style>
 
-  <script>
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/service-worker.js")
-      .then(reg => console.log("Avrac Service Worker registered:", reg))
-      .catch(err => console.error("Avrac Service Worker failed:", err));
-  }
+      <script>
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("/service-worker.js")
+    .then(() => console.log("SW registered"));
+}
 </script>
 <script>
     // Redirect to home.html after 1 second (1000ms)
