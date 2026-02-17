@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avrac/results/rss</title>
+  <link rel="stylesheet" href="results.css"/>
+  <link rel="stylesheet" href="rss.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <div class="header">
+     <div class="tabs" style="margin-bottom: 50px;">
+           <span onclick="goBack()" style="font-size: 30px !important; height: 5vh; width: 30vw !important;">
+               <p>ALL</p>
+          </span>
+          <span id="ai" style="font-size: 30px !important; height: 5vh; width: 30vw !important;">
+              <p>AI</p>
+          </span>
+          <span id="news" class="selected" style="font-size: 30px !important; height: 5vh; width: 30vw !important;">
+              <p>NEWS</p>
+          </span>
+      </div><br>
+    </div>
+  </div>
+  
+  <div class="search-container">
+    <input type="text" id="query" placeholder="Enter topic (e.g. technology)" value="technology">
+    <button onclick="fetchNews()"><p>Search</p></button>
+  </div>
+
+  <div id="results"></div><p><br>
+    <div style="color: red; font-weight: 900; font-size: 20px;">
+      <center>RSS News via Google News RSS with custom images.</center>
+    </div>
+  <script src="rss.js"></script>
+</body>
+</html>
