@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>Avrac/home</title>
+  <link rel="stylesheet" href="home.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <!-- FULL WIDTH SPACE -->
+  <div class="space">
+    <center><p><br><span>Avrac</span></p></center>
+
+  <!-- APP BAR (centered, no change) -->
+  <nav class="appbar">
+    <img src="https://raw.githubusercontent.com/playerauth/Images/refs/heads/main/ai.png" alt="Avrac Logo" class="icon" onclick="location.href='weather.html'">
+    <div class="box" onclick="location.href='search.html'"><i>Tap To Search Anything...</i></div>
+    <img src="https://raw.githubusercontent.com/playerauth/Images/refs/heads/main/mic.png" alt="Avrac Mic" class="mic" onclick="location.href='mic.html'">
+  </nav>
+</div>
+  <!-- FEED CONTAINER – NO .content WRAPPER, CARDS DIRECTLY ON BACKGROUND -->
+  <div id="feed-container"></div>
+
+  <!-- BOTTOM BAR (unchanged) -->
+  <nav class="bottombar">
+    <div class="nav-items" id="selected">
+      <i class="fa-solid fa-house fa-2x"></i>
+      <span>Home</span>
+    </div>
+    <div class="nav-items" onclick="location.href='search.html'">
+      <i class="fa-solid fa-search fa-2x"></i>
+      <span>Search</span>
+    </div>
+    <div class="nav-items" onclick="location.href='exa.html'">
+      <img src="https://raw.githubusercontent.com/playerauth/Images/refs/heads/main/ai.png" alt="Ace" class="bottom-icon">
+      <span>Exa</span>
+    </div>
+    <div class="nav-items" onclick="location.href='more.html'">
+      <i class="fa-solid fa-bars fa-2x"></i>
+      <span>More</span>
+    </div>
+  </nav>
+     <script src="news.js"></script>
+<script src="home.js"></script>
+</body>
+</html>
