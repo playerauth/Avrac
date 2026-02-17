@@ -1,0 +1,384 @@
+/* search.css - Full Bing style with background image */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: url('https://raw.githubusercontent.com/playerauth/Images/refs/heads/main/bg2.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .back-btn {
+    background: rgba(245, 245, 245, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    color: #1a1a1a;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+
+  .back-btn:hover {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0,0,0,0.25);
+  }
+
+  .search-card {
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+  }
+
+  .search-card:focus-within {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 120, 212, 0.4);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.15);
+  }
+
+  .field-icon {
+    color: rgba(0, 0, 0, 0.6);
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+  }
+
+  #search {
+    color: #1a1a1a;
+  }
+
+  #search::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.3);
+  }
+
+  .clear-btn {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .clear-btn:hover {
+    background: rgba(0, 0, 0, 0.08) !important;
+    color: #000;
+  }
+
+  .suggestions-wrapper {
+    background: rgba(255, 255, 255, 0.85);
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  #suggestions li {
+    color: rgba(0,0,0,0.9);
+  }
+
+  #suggestions li:hover {
+    background: rgba(0, 120, 212, 0.15);
+    border-left-color: #0078d4;
+  }
+
+  #suggestions li i {
+    color: rgba(0, 0, 0, 0.55);
+  }
+
+  #suggestions .no-suggestions,
+  #suggestions .unavailable {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .hint {
+    color: rgba(0,0,0,0.8);
+    background: rgba(255,255,255,0.3);
+    backdrop-filter: blur(4px);
+    text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+  }
+
+  .hint i {
+    color: #0078d4;
+  }
+
+  .suggestions-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(0,0,0,0.2);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: url('https://raw.githubusercontent.com/playerauth/Images/refs/heads/main/bg2.jpg') no-repeat center center fixed;
+    background-size: cover;
+  }
+
+  .back-btn {
+    background: rgba(20, 25, 30, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  .back-btn:hover {
+    background: rgba(50, 60, 70, 0.9);
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  .search-card {
+    background: rgba(32, 36, 44, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .search-card:focus-within {
+    background: rgba(28, 32, 38, 0.8);
+    border-color: rgba(255,255,255,0.25);
+    box-shadow: 0 16px 36px rgba(0,0,0,0.4);
+  }
+
+  .field-icon {
+    color: rgba(220, 240, 255, 0.9);
+    text-shadow: 0 2px 4px black;
+  }
+
+  #search {
+    color: white;
+  }
+
+  #search::placeholder {
+    color: rgba(230, 240, 250, 0.7);
+    font-weight: 900;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  }
+
+  .clear-btn {
+    color: white;
+  }
+
+  .clear-btn:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white;
+  }
+
+  .suggestions-wrapper {
+    background: rgba(28, 32, 38, 0.85);
+    border-top: 1px solid rgba(255,255,255,0.15);
+  }
+
+  #suggestions li {
+    color: rgba(255,255,255,0.95);
+  }
+
+  #suggestions li:hover {
+    background: rgba(70, 90, 110, 0.5);
+    border-left-color: #00a3b6;
+  }
+
+  #suggestions li i {
+    color: rgba(200, 220, 255, 0.9);
+  }
+
+  #suggestions .no-suggestions,
+  #suggestions .unavailable {
+    color: rgba(220, 230, 240, 0.8);
+  }
+
+  .hint {
+    color: rgba(255,255,255,0.8);
+    background: rgba(0,0,0,0.2);
+    text-shadow: 0 1px 4px black;
+  }
+
+  .hint i {
+    color: #aad8ff;
+  }
+
+  .suggestions-wrapper::-webkit-scrollbar-thumb {
+    background: rgba(200,200,200,0.4);
+  }
+}
+
+body {
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 4vh 20px 0 20px;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.search-interface {
+  width: 100%;
+  max-width: 620px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  padding: 0 4px;
+  gap: 16px;
+}
+
+.back-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(12px);
+}
+
+.back-btn:hover {
+  transform: scale(1.02);
+}
+
+.search-card {
+  width: 100%;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 28px;
+  transition: box-shadow 0.2s;
+  position: relative;
+}
+
+.search-field {
+  display: flex;
+  align-items: center;
+  padding: 10px 24px;
+  gap: 16px;
+  height: 68px;
+}
+
+.field-icon {
+  font-size: 20px;
+  opacity: 0.9;
+}
+
+#search {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 19px;
+  text-align: center;
+  padding: 8px 0;
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+
+#search::placeholder {
+  font-weight: 400;
+}
+
+.clear-btn {
+  background: transparent !important;
+  border: none;
+  font-size: 25px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.15s;
+  visibility: hidden;
+  backdrop-filter: blur(4px);
+}
+
+.clear-btn.visible {
+  visibility: visible;
+  background: transparent !important;
+}
+
+.suggestions-wrapper {
+  width: 100%;
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  border-radius: 0 0 28px 28px;
+  max-height: 380px;
+  overflow-y: auto;
+  padding: 4px 0;
+  margin-top: 0;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+  display: none;
+}
+
+.suggestions-wrapper.visible {
+  display: block;
+}
+
+#suggestions {
+  list-style: none;
+  padding: 6px 0;
+}
+
+#suggestions li {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 12px 28px;
+  font-size: 17px;
+  cursor: pointer;
+  transition: background 0.08s ease;
+  border-left: 5px solid transparent;
+  line-height: 1.4;
+  word-break: break-word;
+  white-space: normal;
+  width: 100%;
+}
+
+#suggestions li i {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+#suggestions .no-suggestions,
+#suggestions .unavailable {
+  font-style: normal;
+  padding: 18px 28px;
+  pointer-events: none;
+  border-left-color: transparent;
+  gap: 12px;
+}
+
+.hint {
+  margin-top: 28px;
+  padding: 8px 16px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  backdrop-filter: blur(4px);
+  border-radius: 50px;
+}
+
+.hint i {
+  font-size: 15px;
+}
+
+.suggestions-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.suggestions-wrapper::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+}
+
+.suggestions-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+#clearBtn,
+.clear-btn,
+.clear-btn.visible {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  box-shadow: none !important;
+  border: none !important;
+}

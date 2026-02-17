@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avrac/results/all</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+ <link rel="stylesheet" href="results.css">
+</head>
+<body>
+    <div class="space">
+  <nav class="appbar">
+    <img src="https://raw.githubusercontent.com/playerauth/Images/refs/heads/main/icon.png" alt="Avrac Logo" class="icon" onclick="location.href='home.html'">
+    <div class="box" onclick="location.href='search.html'"><i>Tap To Search Anything...</i></div>
+    <img src="https://raw.githubusercontent.com/playerauth/Images/refs/heads/main/mic.png" alt="Avrac Mic" class="mic" onclick="location.href='mic.html'">
+  </nav><br>
+      <div class="tabs">
+           <span id="all">
+               <p>Tap here to see search results</p>
+          </span>
+          <span id="ai">
+              <p>AI</p>
+          </span>
+          <span id="news">
+              <p>NEWS</p>
+          </span>
+      </div><br>
+    </div>
+    <div class="att">
+        
+    </div>
+    <div id="googleSearchContainer" class="search-results"></div>
+    <center>
+            <a href="https://www.google.com">
+            <h2 style="font-size: 15px;">These search results are powerd by Google.</h2>
+            </a>
+        </center>
+    
+<nav class="bottombar">
+    <div class="nav-items" onclick="location.href='home.html'">
+      <i class="fa-solid fa-house fa-2x"></i>
+      <span>Home</span>
+    </div>
+    <div class="nav-items" id="selected">
+      <i class="fa-solid fa-search fa-2x"></i>
+      <span>Search</span>
+    </div>
+    <div class="nav-items" onclick="location.href='exa.html'">
+      <img src="https://raw.githubusercontent.com/playerauth/Images/refs/heads/main/ai.png" alt="Ace" class="bottom-icon">
+      <span>Exa</span>
+    </div>
+    <div class="nav-items" onclick="location.href='more.html'">
+      <i class="fa-solid fa-bars fa-2x"></i>
+      <span>More</span>
+    </div>
+  </nav>
+    <script src="cx.js"></script>
+    <script src="results.js" defer></script>
+</body>
+</html>

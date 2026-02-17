@@ -1,0 +1,431 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: linear-gradient(145deg, #e1f0fa 0%, #c2e0f0 100%);
+  }
+
+  .speech-card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.5);
+    border: 1px solid rgba(0,120,212,0.2);
+  }
+
+  h2 {
+    color: #005a8c;
+    text-shadow: 0 2px 5px rgba(255,255,255,0.5);
+  }
+  
+  h2 span {
+    background: rgba(0,120,212,0.1);
+    color: #006394;
+    border: 0.5px solid rgba(0,0,0,0.1);
+  }
+
+  #output {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(0,0,0,0.1);
+    color: #1a1a1a;
+    text-shadow: 0 1px 2px rgba(255,255,255,0.3);
+  }
+
+  #output:focus {
+    border-color: #0078d4;
+    box-shadow: 0 0 0 2px rgba(0,120,212,0.2);
+  }
+
+  #output::placeholder {
+    color: rgba(0, 0, 0, 0.45);
+  }
+
+  .mic-button {
+    background: linear-gradient(145deg, #ff6b6b, #d32f2f);
+    box-shadow: 0 8px 28px rgba(255, 65, 65, 0.4), inset 0 -4px 10px rgba(0,0,0,0.1);
+    border: 2px solid rgba(255,255,255,0.6);
+  }
+
+  .mic-button span {
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+  }
+
+  .listening {
+    background: #00a86b !important;
+    box-shadow: 0 0 30px #00a86b, 0 0 60px #2ecc71 !important;
+  }
+
+  .status-area {
+    color: #004c6e;
+    background: rgba(255,255,255,0.5);
+    border: 0.5px solid rgba(0,0,0,0.08);
+  }
+
+  .note {
+    color: rgba(0, 90, 120, 0.55);
+    border-top: 0.5px solid rgba(0,0,0,0.1);
+  }
+
+  .back {
+    color: #004c6e;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(145deg, #0b1c2c 0%, #1a3a4f 100%);
+  }
+
+  .speech-card {
+    background: rgba(18, 30, 41, 0.7);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 25px 45px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.08);
+    border: 1px solid rgba(0,200,255,0.18);
+  }
+
+  h2 {
+    color: #e6f7ff;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  }
+  
+  h2 span {
+    background: rgba(0,200,255,0.2);
+    color: #b1ebff;
+    border: 0.5px solid rgba(255,255,255,0.2);
+  }
+
+  #output {
+    background: rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: white;
+    text-shadow: 0 2px 6px black;
+  }
+
+  #output:focus {
+    border-color: #5ad0ff;
+    box-shadow: 0 0 0 2px rgba(0,160,255,0.3);
+  }
+
+  #output::placeholder {
+    color: rgba(200, 230, 255, 0.55);
+  }
+
+  .mic-button {
+    background: linear-gradient(145deg, #ff4d4d, #c92a2a);
+    box-shadow: 0 8px 28px rgba(255, 65, 65, 0.7), inset 0 -4px 10px rgba(0,0,0,0.4);
+    border: 2px solid rgba(255,255,255,0.3);
+  }
+
+  .mic-button span {
+    filter: drop-shadow(0 4px 6px black);
+  }
+
+  .listening {
+    background: #00c853 !important;
+    box-shadow: 0 0 30px #00c853, 0 0 60px #00e676 !important;
+  }
+
+  .status-area {
+    color: #b6e2ff;
+    background: rgba(0,0,0,0.25);
+    border: 0.5px solid rgba(255,255,255,0.1);
+  }
+
+  .note {
+    color: rgba(170, 220, 255, 0.55);
+    border-top: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .back {
+    color: white;
+  }
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+}
+
+.back {
+  background: none;
+  height: auto;
+  width: auto;
+  border: none;
+  font-size: 50px;
+  font-weight: 900;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  align-self: flex-start;
+  margin: 20px 0 30px 10px;
+  padding: 0;
+  line-height: 0.8;
+}
+
+.back:hover {
+  opacity: 0.7;
+}
+
+.speech-card {
+  max-width: 620px;
+  width: 100%;
+  border-radius: 48px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h2 {
+  font-size: 1.7rem;
+  font-weight: 500;
+  margin-bottom: 1.8rem;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+}
+
+h2 span {
+  padding: 0.2rem 1rem;
+  border-radius: 60px;
+  font-size: 0.9rem;
+  font-weight: 400;
+  white-space: nowrap;
+}
+
+.transcript-field {
+  width: 100%;
+  margin-bottom: 2.2rem;
+}
+
+#output {
+  width: 100%;
+  padding: 1.2rem 1.8rem;
+  border-radius: 56px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  font-weight: 450;
+  text-align: left;
+  outline: none;
+  backdrop-filter: blur(8px);
+  transition: border 0.2s, box-shadow 0.2s;
+  letter-spacing: -0.3px;
+}
+
+#output::placeholder {
+  font-weight: 350;
+  font-size: 1.2rem;
+}
+
+.mic-button {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.8rem auto 1.5rem;
+  cursor: pointer;
+  transition: 0.25s ease;
+  flex-shrink: 0;
+}
+
+.mic-button span {
+  font-size: 48px;
+  transform: scale(1);
+  transition: transform 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.listening {
+  animation: pulse 1.5s infinite !important;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 20px #00c853, 0 0 40px #00c853; }
+  50% { transform: scale(1.15); box-shadow: 0 0 40px #00ff6a, 0 0 70px #00e676; }
+  100% { transform: scale(1); box-shadow: 0 0 20px #00c853, 0 0 40px #00c853; }
+}
+
+.status-area {
+  margin-top: 1.8rem;
+  font-size: 0.95rem;
+  padding: 0.7rem 1.8rem;
+  border-radius: 60px;
+  display: inline-block;
+  backdrop-filter: blur(4px);
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.note {
+  margin-top: 1.2rem;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  padding-top: 1.2rem;
+  letter-spacing: 2px;
+  width: 100%;
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 1rem;
+  }
+  
+  .speech-card { 
+    padding: 2rem 1.5rem; 
+  }
+  
+  #output { 
+    font-size: 1.2rem; 
+    padding: 1rem 1.4rem; 
+  }
+  
+  .mic-button { 
+    width: 90px; 
+    height: 90px; 
+  }
+  
+  .mic-button span { 
+    font-size: 40px; 
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .back {
+    font-size: 45px;
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 380px) {
+  .speech-card {
+    padding: 1.5rem 1rem;
+  }
+  
+  h2 {
+    font-size: 1.3rem;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  h2 span {
+    white-space: normal;
+  }
+}
+/* Wave animation for mic button */
+.mic-button {
+  position: relative;
+  overflow: visible;
+}
+
+/* Wave animation below mic button */
+.wave-container {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 10px 0;
+  pointer-events: none;
+}
+
+.wave-bar {
+  width: 6px;
+  height: 25px;
+  background: #0078d4;
+  border-radius: 6px;
+  animation: wave 1s infinite ease-in-out;
+}
+
+.wave-bar:nth-child(1) { animation-delay: 0.1s; }
+.wave-bar:nth-child(2) { animation-delay: 0.2s; }
+.wave-bar:nth-child(3) { animation-delay: 0.3s; }
+.wave-bar:nth-child(4) { animation-delay: 0.4s; }
+.wave-bar:nth-child(5) { animation-delay: 0.5s; }
+
+@keyframes wave {
+  0%, 100% { 
+    height: 15px;
+    background: #0078d4;
+  }
+  25% { 
+    height: 35px;
+    background: #00a86b;
+  }
+  50% { 
+    height: 45px;
+    background: #ff6b6b;
+  }
+  75% { 
+    height: 35px;
+    background: #00a86b;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .wave-bar {
+    background: #5ad0ff;
+  }
+  
+  @keyframes wave {
+    0%, 100% { 
+      height: 15px;
+      background: #5ad0ff;
+    }
+    25% { 
+      height: 35px;
+      background: #00c853;
+    }
+    50% { 
+      height: 45px;
+      background: #ff4d4d;
+    }
+    75% { 
+      height: 35px;
+      background: #00c853;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .wave-container {
+    height: 50px;
+    gap: 6px;
+  }
+  
+  .wave-bar {
+    width: 5px;
+  }
+  
+  @keyframes wave {
+    0%, 100% { height: 12px; }
+    25% { height: 28px; }
+    50% { height: 35px; }
+    75% { height: 28px; }
+  }
+}

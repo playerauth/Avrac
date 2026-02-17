@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+  <title>Avrac/mic</title>
+  <link rel="stylesheet" href="mic.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+  <button class="back" onclick="location.href='search.html'">×</button>
+  <!-- MODERN CARD – YOUR EXACT JS, BEAUTIFUL UI -->
+  <center><div class="speech-card">
+    <h2>
+       Speech Search
+      <span>tap & speak</span>
+    </h2>
+
+    <!-- OUTPUT FIELD – exactly your ID "output" -->
+    <div class="transcript-field">
+      <input type="text" id="output" placeholder="Speak something..." readonly>
+    </div>
+
+    <!-- MIC BUTTON – your EXACT mic with emoji & click toggles recognition -->
+    <div class="mic-button" id="micBtn">
+      <span><i class="fa-solid fa-microphone" style="color: white;"></i></span>
+    </div>
+
+    <!-- STATUS DISPLAY – your ID "status" -->
+    <div class="status-area" id="status">
+       Tap mic to start
+    </div>
+    <div class="note">
+    </div>
+  </div></center>
+<script src="cx.js"></script>
+  <script src="mic.js">
+    
+    
+  </script>
+
+  
+</body>
+</html>
